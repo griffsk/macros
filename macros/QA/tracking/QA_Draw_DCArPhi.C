@@ -122,11 +122,12 @@ void QA_Draw_DCArPhi(
     if (pt_range.first < 2.0)
     {
       h_proj_new->GetXaxis()->SetRangeUser(-.05,.05);
-      h_proj_new->Rebin(5);
+      h_proj_new->Rebin(15);
     }
     else
     {
       h_proj_new->GetXaxis()->SetRangeUser(-.01,.01);
+      h_proj_new->Rebin(3);
     }
     h_proj_new->SetTitle(TString(hist_name_prefix) + TString::Format(
                                                          ": %.1f - %.1f GeV/c", pt_range.first, pt_range.second));
@@ -146,7 +147,11 @@ void QA_Draw_DCArPhi(
       if (pt_range.first < 2.0)
       {
 	//h_proj_ref->GetXaxis()->SetRangeUser(-.05,.05);
-	h_proj_ref->Rebin(5);
+	h_proj_ref->Rebin(15);
+      }
+      else
+      {
+	      h_proj_ref->Rebin(3);
       }
     }
     
